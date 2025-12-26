@@ -20,21 +20,11 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference(options =>
     {
         options.OpenApiRoutePattern = "api/document.json";
-        options.Title = "Weather Forecast API Sample";
-        options.Theme = ScalarTheme.Default;
+        options.Title = "OmniChannel Dispatcher - Stragety Pattern";
+        options.Theme = ScalarTheme.DeepSpace;
         options.Favicon = "/favicon.svg";
         options.Layout = ScalarLayout.Modern;
         options.DarkMode = true;
-        options.Metadata = new Dictionary<string, string>()
-        {
-            { "ogDescription", "Open Graph description" },
-            { "ogTitle", "Open Graph title" },
-            { "twitterCard", "summary_large_image" },
-            { "twitterSite", "https://example.com/api" },
-            { "twitterTitle", "My Api documentation" },
-            { "twitterDescription", "This is the description for the twitter card" },
-            { "twitterImage", "https://dotnet.microsoft.com/blob-assets/images/illustrations/swimlane-build-scalable-web-apps.svg" }
-        };
     });
 }
 

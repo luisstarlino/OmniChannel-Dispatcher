@@ -7,7 +7,7 @@ namespace OmniChannel.Dispatcher.Api.Controllers
     [Route("[controller]")]
     public class NotificationController : ControllerBase
     {
-
+        [HttpPost]
         public async Task<IActionResult> SendNotification([FromBody] SendDTO model)
         {
             return Ok(model);
