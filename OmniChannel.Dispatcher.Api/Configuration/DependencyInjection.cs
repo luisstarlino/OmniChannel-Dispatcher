@@ -1,4 +1,6 @@
-﻿using OmniChannel.Dispatcher.Core.Interfaces;
+﻿using FluentValidation;
+using OmniChannel.Dispatcher.Api.DTOs;
+using OmniChannel.Dispatcher.Core.Interfaces;
 using OmniChannel.Dispatcher.Core.Services;
 using OmniChannel.Dispatcher.Core.Strategies;
 
@@ -13,8 +15,14 @@ namespace OmniChannel.Dispatcher.Api.Configuration
             services.AddScoped<INotificationStrategy, PushStrategy>();
             services.AddScoped<INotificationStrategy, SmsStrategy>();
 
+            // --- Fluent Validation
+            services.AddValidatorsFromAssemblyContaining<SendDTOValidator>(); 
+
+
             // --- Service
             services.AddScoped<INotificationService, NotificationService>();
+
+            services.AddScoped(typeof(ValidationFilter<>));
 
             return services;
         }
