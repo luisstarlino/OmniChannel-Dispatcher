@@ -14,7 +14,7 @@ namespace OmniChannel.Dispatcher.Core.Services
             _strategies = strategies;
         }
 
-        public async Task DispatchMessage(string channel, string  message, CancellationToken ct = default)
+        public async Task DispatchMessage(string channel, string  message)
         {
             // R1.: Get the current strategy without if or switch (OCP - Open/Close Principle)
             var strategy = _strategies.FirstOrDefault(s => s.Channel.Equals(channel, StringComparison.OrdinalIgnoreCase));
@@ -25,7 +25,7 @@ namespace OmniChannel.Dispatcher.Core.Services
             }
 
             // R2.: Send using the correctly 
-            await strategy.SendAsync(message, ct);
+            await strategy.SendAsync(message, default);
         }
 
     }
