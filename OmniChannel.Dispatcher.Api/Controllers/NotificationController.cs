@@ -16,11 +16,12 @@ namespace OmniChannel.Dispatcher.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SendNotification([FromBody] SendDTO model)
+        [ServiceFilter(typeof(ValidationFilter<SendDTO>))]
+        public async Task<IActionResult> SendNotification([FromBody] SendDTO model, CancellationToken ct)
         {
             try
             {
-                await _notificationService.DispatchMessage(model.Channel, model.Message);
+                await _notificationService.DispatchMessage(model.Channel, model.Message, ct);
                 return Ok(model);
 
             } catch (Exception ex)
