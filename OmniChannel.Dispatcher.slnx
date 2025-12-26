@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="OmniChannel.Dispatcher.Api/OmniChannel.Dispatcher.Api.csproj" Id="4e5a4611-865c-404e-833a-c890cfeddb6b" />
+  <Project Path="OmniChannel.Dispatcher.Core/OmniChannel.Dispatcher.Core.csproj" Id="02b4a2e5-25fd-4d45-a09a-3de8ecef0e88" />
 </Solution>
